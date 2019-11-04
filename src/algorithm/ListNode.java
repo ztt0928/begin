@@ -1,0 +1,15 @@
+package algorithm;
+
+/**
+ * @author liuxinyi
+ * @since 2019/11/4
+ */
+public class ListNode {
+    public int val;
+    public ListNode next;
+
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
