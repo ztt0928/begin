@@ -1,4 +1,4 @@
-package algorithm.tree;
+package algorithm.lxy.tree;
 
 import algorithm.TreeNode;
 

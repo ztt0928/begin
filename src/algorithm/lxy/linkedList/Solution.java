@@ -1,4 +1,4 @@
-package algorithm.linkedList;
+package algorithm.lxy.linkedList;
 
 import algorithm.ListNode;
 
