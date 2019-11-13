@@ -9,33 +9,37 @@ import algorithm.ListNode;
  */
 public class Solution {
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode listNode = head;
-        // 先把最小的数找出来
-        ListNode minNode = head;
-        ListNode preNode = head;
-        for (ListNode node = minNode.next; node != null && preNode != null; node = node.next, preNode = preNode.next) {
-            if (node.val < minNode.val) {
-                minNode = node;
-            }
-        }
-        head = minNode;
-        preNode.next = minNode.next;
-        minNode.next = listNode;
-
-        listNode = head;
-        ListNode swapNode = head.next;
-        for (ListNode listNode1 = head.next.next; listNode1 != null; listNode1 = listNode1.next) {
-            for (; swapNode != null && listNode != null; swapNode = swapNode.next, listNode = listNode.next) {
-                if (listNode1.val <= swapNode.val) {
-                    listNode.next = listNode1;
-                    swapNode.next = listNode1.next;
-                    listNode1.next = swapNode;
-                }
-            }
-        }
+        quickSort(head, null);
         return head;
+    }
+
+    public static void quickSort(ListNode head, ListNode end) {
+        if (head != end) {
+            ListNode node = partion(head, end);
+            quickSort(head, node);
+            quickSort(node.next, end);
+        }
+    }
+
+    public static ListNode partion(ListNode head, ListNode end) {
+        ListNode p1 = head;
+        ListNode p2 = head.next;
+        while (p2 != end) {
+            if (p2.val < head.val) {
+                p1 = p1.next;
+
+                int temp = p1.val;
+                p1.val = p2.val;
+                p2.val = temp;
+            }
+            p2 = p2.next;
+        }
+
+        if (p1 != head) {
+            int temp = p1.val;
+            p1.val = head.val;
+            head.val = temp;
+        }
+        return p1;
     }
 }
