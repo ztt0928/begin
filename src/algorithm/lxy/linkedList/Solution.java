@@ -4,7 +4,7 @@ import algorithm.ListNode;
 
 /**
  * @author liuxinyi
- * @description 在O(n log n)的时间内使用常数级空间复杂度对链表进行排序。
+ * @description 在O(n log n)的时间内使用常数级空间复杂度对链表进行排序。使用快排的方式进行排序
  * @since 2019/11/4
  */
 public class Solution {
